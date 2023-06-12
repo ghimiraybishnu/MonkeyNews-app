@@ -5,14 +5,29 @@ import React, { Component } from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 export default class App extends Component {
-  c = 'Ghimiray'
   render() {
     return (
       <div>
+        <Router>
      <NavBar/>
-       <News/>
+       <Routes>
+          <Route exact path="/" element={<News key="General"  pageSize={5} country="us" category="General"/>}/>
+          <Route exact path="/Business" element={<News key="Business" pageSize={5} country="us" category="Business"/>}/>
+          <Route exact path="/Entertainment" element={<News key="Entertainment" pageSize={5} country="us" category="Entertainment"/>}/>
+          <Route exact path="/Entertainment" element={<News key="Entertainment" pageSize={5} country="us" category="Entertainment"/>}/>
+          <Route exact path="/Health" element={<News key="Health" pageSize={5} country="us" category="Health"/>}/>
+          <Route exact path="/Science" element={<News key="Science" pageSize={5} country="us" category="Science"/>}/>
+          <Route exact path="/Sports" element={<News key="Sports" pageSize={5} country="us" category="Sports"/>}/>
+          <Route exact path="/Technology" element={<News key="Technology" pageSize={5} country="us" category="Technology"/>}/>
+          </Routes>
+       </Router>
       </div>
     )
   }
